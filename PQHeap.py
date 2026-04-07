@@ -1,3 +1,6 @@
+## PROJECT DEL 1 ##
+## Af Lasse Banke Rasmussen (lrasm24@student.sdu.dk) og Melanie Toudahl Nielsen (melni24@student.sdu.dk) ##
+
 def createEmptyPQ():
     "Returns an empty heap"
     return []
@@ -9,6 +12,7 @@ def extractMin(A):
     "Assumed that A is non-empty. " 
 
     min = A[0] # Safes the min (root)
+    
     if len(A)>1:
         A[0] = A.pop() # Replaces root with the last leave
         minHeapify(A,0) # Restores heap-order
