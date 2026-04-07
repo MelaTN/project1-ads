@@ -54,14 +54,14 @@ def insert(A:list,e:float) -> None:
 ## Parent and children of node i ##
 
 def left(i:int) -> int:
-    "Returns the index of the left child of node i"
+    "Returns the index of the left child of node i."
     return 2*i + 1
 
 def right(i:int) -> int:
-    "Returns the index of the right child of node i"
+    "Returns the index of the right child of node i."
     return 2*i + 2
 
 def parent(i:int) -> int:
-    "Returns the index of the parent of node i"
+    "Returns the index of the parent of node i."
     return (i-1)//2
 
