@@ -7,7 +7,7 @@ def createEmptyPQ() -> list:
 
 ## extractMin and minHeapify ##
 
-def extractMin(A:list) -> float:
+def extractMin(A: list) -> float:
     "Returns and removes the minimum of the min-priority-queue A. "
     "Assumed that A is non-empty. " 
 
@@ -21,7 +21,7 @@ def extractMin(A:list) -> float:
    
     return min
 
-def minHeapify(A:list,i:int) -> None:
+def minHeapify(A: list, i: int) -> None:
     "Restores heap-order under the assumption that the subtrees of node i are min-heaps."
     
     l = left(i) # The left child of node i
@@ -42,7 +42,7 @@ def minHeapify(A:list,i:int) -> None:
 
 ## insert  ##
 
-def insert(A:list,e:float) -> None:
+def insert(A: list, e: float) -> None:
     "Inserts key e into priority-queue A and restores min-heaporder."
     A.append(e)
     i = len(A)-1
@@ -53,15 +53,15 @@ def insert(A:list,e:float) -> None:
 
 ## Parent and children of node i ##
 
-def left(i:int) -> int:
+def left(i: int) -> int:
     "Returns the index of the left child of node i"
     return 2*i + 1
 
-def right(i:int) -> int:
+def right(i: int) -> int:
     "Returns the index of the right child of node i"
     return 2*i + 2
 
-def parent(i:int) -> int:
+def parent(i: int) -> int:
     "Returns the index of the parent of node i"
     return (i-1)//2
 
