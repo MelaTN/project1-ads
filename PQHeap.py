@@ -1,26 +1,28 @@
 ## PROJECT DEL 1 ##
 ## Af Lasse Banke Rasmussen (lrasm24@student.sdu.dk) og Melanie Toudahl Nielsen (melni24@student.sdu.dk) ##
 
-def createEmptyPQ():
-    "Returns an empty heap"
+def createEmptyPQ() -> list:
+    "Returns an empty heap."
     return []
 
 ## extractMin and minHeapify ##
 
-def extractMin(A):
+def extractMin(A:list) -> float:
     "Returns and removes the minimum of the min-priority-queue A. "
     "Assumed that A is non-empty. " 
 
-    min = A[0] # Safes the min (root)
+    min = A[0] # Saves the min (root)
     
-    if len(A)>1:
-        A[0] = A.pop() # Replaces root with the last leave
-        minHeapify(A,0) # Restores heap-order
+    # Replaces root with the last leave
+    A[0] = A[-1]
+    A.pop() 
+
+    minHeapify(A,0) # Restores heap-order
    
     return min
 
-def minHeapify(A,i):
-    "Restores heap-order under the assumption that the subtrees of node i are min-heaps"
+def minHeapify(A:list,i:int) -> None:
+    "Restores heap-order under the assumption that the subtrees of node i are min-heaps."
     
     l = left(i) # The left child of node i
     r = right(i) # The right child of node i
@@ -34,37 +36,32 @@ def minHeapify(A,i):
         smallest = r
     
     if smallest != i:
-        # Exchange A[i] and A[smallest]
-        temp = A[i]
-        A[i] = A[smallest]
-        A[smallest] = temp
+        A[i], A[smallest] = A[smallest], A[i] # Exchange A[i] and A[smallest]
         minHeapify(A,smallest)
 
 
 ## insert  ##
 
-def insert(A,e):
+def insert(A:list,e:float) -> None:
+    "Inserts key e into priority-queue A and restores min-heaporder."
     A.append(e)
     i = len(A)-1
     while i > 0 and A[parent(i)] > A[i]:
-        # Exchange A[i] and A[parent(i)]
-        temp = A[i]
-        A[i] = A[parent(i)]
-        A[parent(i)] = temp
+        A[i], A[parent(i)] = A[parent(i)], A[i] # Exchange A[i] and A[smallest]
         i = parent(i)
 
 
 ## Parent and children of node i ##
 
-def left(i):
+def left(i:int) -> int:
     "Returns the index of the left child of node i"
     return 2*i + 1
 
-def right(i):
+def right(i:int) -> int:
     "Returns the index of the right child of node i"
     return 2*i + 2
 
-def parent(i):
+def parent(i:int) -> int:
     "Returns the index of the parent of node i"
     return (i-1)//2
 
