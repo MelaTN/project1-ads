@@ -1,3 +1,6 @@
+## PROJECT DEL 2 ##
+## Af Lasse Banke Rasmussen (lrasm24@student.sdu.dk) og Melanie Toudahl Nielsen (melni24@student.sdu.dk) ##
+
 # Sorts inputfile via repeated inserts into a binary search tree followed by an inorder tree walk. 
 
 import sys
